@@ -1,0 +1,48 @@
+1.CREATE DATABASE db_parkir_elgiansyah
+2.CREATE TABLE kendaraan (
+    plat_nomor int PRIMARY KEY,
+    merek varchar(10),
+    tahun int,
+    no_parkir int);
+3.CREATE TABLE parkir (
+    no_parkir int PRIMARY KEY,
+    lokasi varchar(10),
+    tarif_parkir int);
+4.Kendaraan
+INSERT INTO kendaraan (plat_nomor,merek,jenis_kendaraan,tahun,no_parkir) VALUES
+(0011,'Porche','Mobil',2002,1),
+(0012,'Porche','Mobil',2013,2),
+(0013,'lamborgini','Mobil',2012,3),
+(0014,'honda','Motor',2004,4),
+(0015,'yamaha','Motor',2016,5);
+ 
+Parkir
+INSERT INTO parkir (no_parkir,lokasi,tarif_parkir) VALUES
+(1,'kampus 1',2000),
+(2,'kampus 2',3000),
+(3,'kampus 1',2000),
+(4,'kampus 1',2000),
+(5,'kampus 2',3000);
+
+<?php
+$no_parkir = $_POST['no_parkir'];
+$lokasi = $_POST['lokasi'];
+$tarif_parkir = $_POST['tarif_parkir'];
+
+include "../../config/koneksi.php";
+
+$query = mysqli_query($conn,query:"INSERT INTO parkir VALUES (
+    '$no_parkir',
+    '$lokasi',
+    '$tarif_parkir',
+    '$tahun')");
+
+// Javascript untuk notifikasi
+if ($query) {
+    echo "<script>alert('Data berhasil disimpan')</script>";
+    echo "<script>window.location.href='index.php'</script>";
+} else {
+    echo "<script>alert('Data tidak berhasil disimpan')</script>";
+    echo "<script>window.location.href='view_tambah.php'</script>";
+}
+?>

@@ -1,0 +1,10 @@
+CREATE TABLE barang(
+  id_barang int PRIMARY key,
+  nama_barang varchar (30),
+  id_jenis int,
+  harga varchar (25),
+  stok int);
+
+CREATE TABLE jenis(
+   id_jenis int PRIMARY key,
+   nama_jenis varchar (30));
