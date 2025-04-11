@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <title>Document</title>
+    <title>Web isis</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
@@ -28,8 +29,8 @@
     </nav>
 
     <div class="container">
-    <h1>tambah barang</h1>
-    <a class="btn btn-primary" href="view_tambah.php">tambah barang</a>
+    <h1><i class="fa-solid fa-skull-crossbones"></i>Tambah data barang</h1>
+    <a class="btn btn-primary" href="view_tambah.php"><i class="fa-solid fa-shuttle-space"></i>tambah barang</a>
     <br><br>
     <table class="table table-bordered table-striprd">
         <thead class="table-dark">
@@ -60,7 +61,12 @@
             <td><?php echo $result['harga'] ?></td>
             <td><?php echo $result['stok'] ?></td>
             <td>
-                <a class="btn btn-warning">Edit</a>
+            <a href="view_edit.php?id=<?php echo $result['id_barang'] ?>" class="btn btn-warning">
+            <i class="fa-solid fa-cart-plus"></i> Edit</a>
+
+                <a href= "proses_hapus.php?id=<?php echo $result['id_barang']; ?>"
+                onclick="return confirm ('AMBA=RENO')" class="btn btn-danger btn-sm"><i 
+                class="fa-regular fa-trash-can"></i>Hapus</a> 
             </td>
         </tr>
         <?php

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <title>Document</title>
 </head>
@@ -28,7 +29,7 @@
     </nav>
 
     <div class="container">
-    <h1>data jenis</h1>
+    <h1><i class="fa-solid fa-shuttle-space"></i>Data jenis</h1>
     <a class="btn btn-primary" href="view_tambah.php">tambah jenis</a>
     <br><br>
     <table class="table table-bordered table-striprd">
@@ -53,7 +54,8 @@
             <td><?php echo $result['id_jenis'] ?></td>
             <td><?php echo $result['nama_jenis'] ?></td>
             <td>
-                <a class="btn btn-warning">Edit</a>
+            <a href="view_edit.php?id=<?php echo $result['id_jenis'] ?>" class="btn btn-warning">
+                            <i class="fa-solid fa-cart-plus"></i> Edit</a>
             </td>
         </tr>
         <?php

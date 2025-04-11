@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -27,19 +26,23 @@
             </div>
         </div>
     </nav>
+    <?php
+        include '../../config/koneksi.php';
+        $id_jenis= $_GET['id'];
+        $query = mysqli_query($conn, "SELECT * FROM jenis WHERE id_jenis='$id_jenis'");
+        $result = mysqli_fetch_array($query);
+        ?>
 
-    <div class="container">
-        <h1>Tambah Data jenis</h1>
-        <form action="proses_tambah.php" method="POST">
+        <form action="proses_edit.php?id=<?php echo $result['id_jenis']; ?>" method="POST">
             <div class="mb-3">
-                <label for="id_jenis" class="form-label">id_jenis</label>
-                <input type="text" class="form-control" name="id_jenis" id="id_jenis" required>
+                <label for="exampleInputEmail1" class="form-label">ID Jenis</label>
+                <input type="int" class="form-control" name="id_jenis" value="<?php echo $result['id_jenis']; ?>" id="exampleInputEmail1">
             </div>
+
             <div class="mb-3">
-                <label for="nama_jenis" class="form-label">nama_jenis</label>
-                <input type="text" class="form-control" name="nama_jenis" id="nama_jenis" required>
+                <label for="exampleInputEmail1" class="form-label">Nama Jenis</label>
+                <input type="varchar" class="form-control" name="nama_jenis" value="<?php echo $result['nama_jenis']; ?>" id="exampleInputPassword1">
             </div>
-            
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
